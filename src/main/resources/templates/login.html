@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="navigation.html :: navigation"></nav>
+<div class="col-md-8 col-md-offset-2">
+
+</div>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header" > Login </div>
+        <div class="card-body">
+
+            <form th:action="@{/login}"  method="post">
+                <label for="username">Username</label>
+                <input type="text"
+                       id="username"
+                       name="username"
+                       class="form-control"
+                />
+                <label for="password">Password</label>
+                <input type="password"
+                       name="password"
+                       id="password"
+                       class="form-control"
+                />
+                <button type="submit" class="btn btn-success mt-3">Login</button>
+
+            </form>
+
+        </div>
+        <p th:if="${loginError}" class="card-footer">Wrong user or password</p>
+
+    </div>
+</div>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>
