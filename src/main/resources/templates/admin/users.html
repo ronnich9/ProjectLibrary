@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="navigation.html :: navigation"></nav>
+
+<div class="container mt-5">
+
+    <!-- Main card element -->
+    <div class="card bg-light">
+        <div class="card-header">
+            <i class="fas fa-book"></i> Books
+        </div>
+        <div class="card-body">
+            <!-- Page Content will wrap here -->
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th> Username</th>
+                    <th> Email</th>
+                    <th> Phone Number</th>
+                    <th> Start Date</th>
+                    <th> End Date</th>
+                    <th> Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="takenBook : ${allTakenBooks}">
+                    <td><span th:text="${takenBook.user.username}"> Username </span></td>
+                    <td><span th:text="${takenBook.user.email}"> Email </span></td>
+                    <td><span th:text="${takenBook.user.phone_number}"> Phone </span></td>
+                    <td><span th:text="${takenBook.taken_time}"> Start </span></td>
+                    <td><span th:text="${takenBook.returned_time}"> End </span></td>
+                    <td>
+
+                        <a th:href="@{/admin/books/delete/{id}(id=${takenBook.id})}" class="btn btn-danger mt-3" style="width: 100px">Delete</a>
+
+                    </td>
+
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

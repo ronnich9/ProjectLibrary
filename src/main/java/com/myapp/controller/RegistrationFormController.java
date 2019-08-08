@@ -1,10 +1,10 @@
 package com.myapp.controller;
 
 import com.myapp.dto.UserDTO;
+import com.myapp.entity.User;
 import com.myapp.exception.DontExistException;
 import com.myapp.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/registration")
 public class RegistrationFormController {
 
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
+
+    public RegistrationFormController(UserService userService) {
+        this.userService = userService;
+    }
+
 
     @GetMapping
     public String registration() {

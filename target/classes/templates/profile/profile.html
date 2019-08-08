@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Library</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{css/index.css}">
+</head>
+<body>
+<nav th:replace="navigation.html :: navigation"></nav>
+
+<div class="container mt-5">
+
+    <!-- Main card element -->
+    <div class="card bg-light">
+        <div class="card-header">
+            <i class="fas fa-book"></i> Books
+        </div>
+        <div class="card-body">
+            <!-- Page Content will wrap here -->
+            <table >
+
+                <thead>
+                <tr>
+                    <th> # </th>
+                    <th> Image </th>
+                    <th> Book Info </th>
+                    <th> Owner </th>
+                    <th> Start Date </th>
+                    <th> End Date </th>
+                </tr>
+                </thead>
+                <tbody th:each="takenBook, iStat : ${takenBooks}">
+                <tr style="border: 1px solid black">
+                    <td  th:text="${iStat.count}" width="5%" class="h3" style="padding-left: 15px;border: 1px solid black"></td>
+
+                    <td width="10%" th:switch="${takenBook.book.amount}">
+                        <img th:src="${takenBook.book.imgUrl}" alt="Book Cover Photo" width="100%"/>
+                    </td>
+                    <td width="45%" style="padding-left: 35px; padding-top: 15px;border: 1px solid black">
+                        <h5 id="book-title" th:text="${takenBook.book.title}">Book Title</h5>
+
+                        <span> by </span>
+                        <span th:text="${takenBook.book.author.name}">Book Author name</span>
+                        <br>
+                        <div style="padding-top: 15px;">
+                            <span> Pages: </span>
+                            <span th:text="${takenBook.book.pages}">Pages</span>
+                            <span class="h6"> | </span>
+                            <span> Year: </span>
+                            <span th:text="${takenBook.book.year}">Year</span>
+                        </div>
+                        <br>
+
+                    </td>
+
+                    <td  style="border: 1px solid black; width: 20%; text-align: center">
+                        <h5 id="user-name" th:text="${takenBook.user.username}">username</h5>
+                    </td>
+
+                    <td  style="border: 1px solid black; width: 10%; text-align: center">
+                        <h5  th:text="${#temporals.format(takenBook.taken_time, 'dd.MM.yyyy')}">Start Date</h5>
+                    </td>
+
+                    <td  style="border: 1px solid black; width: 10%; text-align: center">
+                        <h5  th:text="${#temporals.format(takenBook.returned_time, 'dd.MM.yyyy')}">End Time</h5>
+                    </td>
+
+                </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+<footer></footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="navigation.html :: navigation"></nav>
+
+<div class="container mt-5">
+
+    <!-- Main card element -->
+    <div class="card bg-light">
+        <div class="card-header">
+            <i class="fas fa-book"></i> Books
+        </div>
+        <div class="card-body">
+            <!-- Page Content will wrap here -->
+            <table class="table table-striped">
+                <tbody th:each="book, iStat : ${books}">
+                <tr style="border: 1px solid black">
+                    <td th:text="${iStat.count}" width="10%" class="h3"
+                        style="padding-left: 15px;border: 1px solid black"></td>
+
+                    <td width="100%" style="padding: 35px;">
+                        <a th:href="@{/admin/books/show/{id}(id=${book.id})}" class="h5" th:text="${book.title}">Book
+                            Title</a>
+
+
+
+                    </td>
+
+
+                </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

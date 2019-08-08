@@ -1,0 +1,31 @@
+/*.form-control-borderless {*/
+/*    border: none;*/
+/*}*/
+
+/*.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {*/
+/*    border: none;*/
+/*    outline: none;*/
+/*    box-shadow: none;*/
+/*}*/
+/*.row {*/
+/*    column-count: 2;*/
+/*}*/
+
+/*.card-deck {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(32%, 1fr));*/
+/*    grid-row-gap: 1.25rem;*/
+/*}*/
+
+/*.fa-star {*/
+/*    color: #28a745;*/
+/*}*/
+
+/*.btn {*/
+/*    color: white;*/
+/*}*/
+
+/*table {*/
+/*    border-collapse: separate;*/
+/*    border-spacing: 10px 5px;*/
+/*}*/
