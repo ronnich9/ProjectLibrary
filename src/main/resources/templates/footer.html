@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer</title>
+</head>
+<body>
+<footer th:fragment="footer" class="container">
+    <span style="float: right">
+    <a href="?lang=en" th:text="#{lang.en}">en</a>
+    |
+    <a href="?lang=ua" th:text="#{lang.ua}">ua</a>
+</span>
+</footer>
+</body>
+</html>

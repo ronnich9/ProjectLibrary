@@ -12,15 +12,15 @@
 <nav th:replace="navigation.html :: navigation"></nav>
 
 <div class="container mt-5" sec:authorize="hasAuthority('ADMIN')">
-    <a class="btn btn-lg btn-success ml-5" th:href="@{/books/create}">Add New Book</a>
+    <a class="btn btn-lg btn-success ml-5" th:href="@{/books/create}" th:text="#{books.add_new_book}">Add New Book</a>
 </div>
 
 <div class="container mt-5">
 
     <!-- Main card element -->
     <div class="card bg-light">
-        <div class="card-header">
-            <i class="fas fa-book"></i> Books
+        <div class="card-header" th:text="#{books.header}">
+             Books
         </div>
         <div  class="card-body">
             <!-- Page Content will wrap here -->
@@ -34,9 +34,9 @@
                         <img th:src="${book.imgUrl}" alt="Book Cover Photo" width="100%"/>
                         <div class="row justify-content-center">
                             <span th:case="0" class="h6"
-                                  style="background-color: red; margin-top: 3px">Not Avaible</span>
+                                  style="background-color: red; margin-top: 3px" th:text="#{books.not_avaible}">Not Avaible</span>
                             <span th:case="*" class="h6"
-                                  style="background-color: lawngreen; margin-top: 3px">Avaible</span>
+                                  style="background-color: lawngreen; margin-top: 3px" th:text="#{books.avaible}">Avaible</span>
                             <!--                            <img th:case="0" src="/img/icon_red.png" style="width: 15px;height:15px;position: center"/>-->
                             <!--                            <img th:case="*" src="/img/icon.png" style="width: 15px;height:15px "/>-->
                         </div>
@@ -44,21 +44,21 @@
                     <td width="100%" style="padding-left: 35px; padding-top: 15px;">
                         <h5 id="book-title" th:text="${book.title}">Book Title</h5>
 
-                        <span> by </span>
+                        <span th:text="#{books.by}"> by </span>
                         <span th:text="${book.author.name}">Book Author name</span>
                         <br>
                         <div style="padding-top: 15px;">
-                            <span> Pages: </span>
+                            <span th:text="#{books.pages}"> Pages: </span>
                             <span th:text="${book.pages}">Pages</span>
                             <span class="h6"> | </span>
-                            <span> Year: </span>
+                            <span th:text="#{books.year}"> Year: </span>
                             <span th:text="${book.year}">Year</span>
                         </div>
                         <br>
 
                         <div sec:authorize="isAuthenticated()">
                             <form th:action="@{/books/take/{id} (id=${book.id})}" method="post">
-                                <button type="submit" class="btn btn-success ml-4 mb-3">
+                                <button type="submit" class="btn btn-success ml-4 mb-3" th:text="#{books.take}">
                                     Take
                                 </button>
                             </form>
@@ -70,11 +70,11 @@
 
                         <div sec:authorize="hasAuthority('ADMIN')">
 
-                            <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-danger mr-3" style="width: 100px"> Update</a>
+                            <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-danger mr-3" style="width: 100px" th:text="#{books.update}"> Update</a>
 
                             <br>
 
-                            <a th:href="@{/books/delete/{id}(id=${book.id})}" class="btn btn-danger mt-3" style="width: 100px"> Delete</a>
+                            <a th:href="@{/books/delete/{id}(id=${book.id})}" class="btn btn-danger mt-3" style="width: 100px" th:text="#{books.delete}"> Delete</a>
 
                         </div>
                         <hr style="width: 250px; visibility: hidden"/>

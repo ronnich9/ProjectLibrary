@@ -24,10 +24,10 @@
                 <thead>
                 <tr>
                     <th> # </th>
-                    <th> Book Info </th>
-                    <th> Owner </th>
-                    <th> Start Date </th>
-                    <th> End Date </th>
+                    <th th:text="#{admin.book_info}"> Book Info </th>
+                    <th th:text="#{admin.owner}"> Owner </th>
+                    <th th:text="#{admin.start_date}"> Start Date </th>
+                    <th th:text="#{admin.end_date}"> End Date </th>
                 </tr>
                 </thead>
                 <tbody th:each="takenBook, iStat : ${takenBooks}">
@@ -36,7 +36,7 @@
                     <td width="45%" style="padding-left: 35px; padding-top: 15px;border: 1px solid black">
                         <h5 id="book-title" th:text="${takenBook.book.title}">Book Title</h5>
 
-                        <span> by </span>
+                        <span th:text="#{books.by}"> by </span>
                         <span th:text="${takenBook.book.author.name}">Book Author name</span>
 
                     </td>

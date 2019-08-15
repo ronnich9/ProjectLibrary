@@ -14,31 +14,31 @@
 
 <div class="container mt-5">
     <div class="card">
-        <div class="card-header" > Registration </div>
+        <div class="card-header" th:text="#{registration.header}"> Registration </div>
         <div class="card-body">
             <form th:action="@{/registration}" method="post">
-                        <label for="username">Username </label>
+                        <label for="username" th:text="#{registration.username}">Username </label>
                         <input type="text"
                                name="username"
                                id="username"
                                class="form-control"
                         />
 
-                        <label for="password">Password</label>
+                        <label for="password" th:text="#{registration.password}">Password</label>
                         <input type="password"
                                name="password"
                                id="password"
                                class="form-control"
                         />
 
-                        <label for="email">Email</label>
+                        <label for="email" th:text="#{registration.email}">Email</label>
                         <input type="email"
                                name="email"
                                id="email"
                                class="form-control"
                         />
 
-                        <label for="phone_number">Phone number</label>
+                        <label for="phone_number" th:text="#{registration.phone}">Phone number</label>
                         <input type="text"
                                name="phone_number"
                                id="phone_number"
@@ -46,7 +46,7 @@
                         />
 
 
-                <button type="submit" class="btn btn-success mt-3">Submit</button>
+                <button type="submit" class="btn btn-success mt-3" th:text="#{registration.button}">Submit</button>
             </form>
         </div>
 

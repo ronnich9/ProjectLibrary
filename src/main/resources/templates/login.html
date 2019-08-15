@@ -14,28 +14,28 @@
 </div>
 <div class="container mt-5">
     <div class="card">
-        <div class="card-header" > Login </div>
+        <div class="card-header" th:text="#{login.header}"> Login </div>
         <div class="card-body">
 
             <form th:action="@{/login}"  method="post">
-                <label for="username">Username</label>
+                <label for="username" th:text="#{login.username}">Username</label>
                 <input type="text"
                        id="username"
                        name="username"
                        class="form-control"
                 />
-                <label for="password">Password</label>
+                <label for="password" th:text="#{login.password}">Password</label>
                 <input type="password"
                        name="password"
                        id="password"
                        class="form-control"
                 />
-                <button type="submit" class="btn btn-success mt-3">Login</button>
+                <button type="submit" class="btn btn-success mt-3" th:text="#{login.button}">Login</button>
 
             </form>
 
         </div>
-        <p th:if="${loginError}" class="card-footer">Wrong user or password</p>
+        <p th:if="${loginError}" class="card-footer" th:text="#{login.error}">Wrong user or password</p>
 
     </div>
 </div>
